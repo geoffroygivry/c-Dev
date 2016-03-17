@@ -5,20 +5,15 @@ using namespace std;
 
 // Prototypes
 void PrintInfo();
-string GetGuessAndPrint();
+void PlayGame();
+string GetGuess();
 
 
 // main function, where the magic starts....
 int main() {
 
 	PrintInfo();
-
-	// loop trough the number of guess
-	constexpr int NUMBER_OF_TURNS = 5;
-	for (int count = 1; count <= NUMBER_OF_TURNS; count++) {
-		GetGuessAndPrint();
-		cout << endl;
-	}
+	PlayGame();
 
 	return 0;
 }
@@ -32,13 +27,24 @@ void PrintInfo() {
 	return;
 }
 
+
+void PlayGame()
+{
+	// loop trough the number of guess
+	constexpr int NUMBER_OF_TURNS = 5;
+	for (int count = 1; count <= NUMBER_OF_TURNS; count++) {
+		string Guess = GetGuess();
+		cout << "Your guess was: " << Guess << endl;
+		cout << endl;
+	}
+}
+
+
 // get a guess from the player
-string GetGuessAndPrint() {
+string GetGuess() {
 
 	cout << "Your guess please? ";
 	string Guess = "";
 	getline(cin, Guess);
-	// repeat the guess
-	cout << "Your guess was: " << Guess << endl;
 	return Guess;
 }
