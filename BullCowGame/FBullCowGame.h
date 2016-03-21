@@ -3,14 +3,19 @@
 
 class FBullCowGame {
 public:
-	void Reset();
-	int GetMaxTries();
+
+	FBullCowGame(); //Constructor
+
+	int GetMaxTries() const;
+	int GetCurrentTry() const;
+	bool IsGameWon() const;
+
 	std::string GetNewWord();
-	int GetCurrentTry();
-	bool IsGameWon();
 	bool CheckGuessValidity();
+	void Reset();
 
 private:
-	int MyCurrentTries = 1;
-	int MyMaxTries = 5;
+	// we don't put values because the constructor will initiate the values for us.
+	int MyCurrentTries;
+	int MyMaxTries;
 };
