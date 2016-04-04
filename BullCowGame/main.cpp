@@ -4,7 +4,7 @@
 
 int main();
 
-// aliases
+// aliases based on Unreal coding standart
 using FText = std::string;
 using int32 = int;
 
@@ -50,9 +50,11 @@ void PlayGame()
 	{
 		FText Guess = GetGuess(); //TODO make loop checking validation
 		// submit valid guess  to the game
+		FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
 		// print number of bulls and cows
-		std::cout << "Your guess was: " << Guess << std::endl;
-		std::cout << std::endl;
+		std::cout << "Bulls = " << BullCowCount.Bulls;
+		std::cout << ". Cows = " << BullCowCount.Cows << std::endl;
+
 	}
 }
 
