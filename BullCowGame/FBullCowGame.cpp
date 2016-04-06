@@ -8,8 +8,10 @@ FBullCowGame::FBullCowGame()
 	Reset();
 }
 
+// getters
 int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTries; }
+int32 FBullCowGame::getHiddenWordLength() const {return MyHiddenWord.length(); }
 
 
 //receives a valid guess, increments turns and returns count
@@ -47,7 +49,7 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 void FBullCowGame::Reset()
 {
 
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "geoff";
 	MyHiddenWord = HIDDEN_WORD;
 
 	constexpr int32 MAX_TRIES = 5;
@@ -70,7 +72,8 @@ bool FBullCowGame::IsGameWon() const
 	return false;
 }
 
-bool FBullCowGame::CheckGuessValidity()
+
+bool FBullCowGame::CheckGuessValidity() const
 {
 	return false;
 }

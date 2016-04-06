@@ -33,9 +33,9 @@ int main()
 void PrintInfo() 
 {
 
-	constexpr int32 WORD_LENGTH = 5;
+
 	std::cout << "****Bulls and Cows Game!****\n\n" << std::endl;
-	std::cout << "Can you guess the " << WORD_LENGTH << " letter I am thinking?\n\n";
+	std::cout << "Can you guess the " << BCGame.getHiddenWordLength() << " letter I am thinking?\n\n";
 	return;
 }
 

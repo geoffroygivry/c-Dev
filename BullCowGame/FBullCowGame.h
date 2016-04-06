@@ -17,9 +17,11 @@ public:
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
 	bool IsGameWon() const;
+	int32 getHiddenWordLength() const;
+	bool CheckGuessValidity() const; //TODO making a more rich return value
 
 	FString GetNewWord();
-	bool CheckGuessValidity(); //TODO making a more rich return value
+
 
 	// counts bulls and cows, and increasing turn number.
 	FBullCowCount SubmitGuess(FString);
