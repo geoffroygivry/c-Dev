@@ -1,44 +1,52 @@
+/* The game logic (no view code or direct user interaction)
+The game is a simple guess the word game based on Mastermind
+*/
+
 #pragma once
 #include <string>
 
+// to make syntax Unreal friendly
 using FString = std::string;
 using int32 = int;
 
-struct FBullCowCount {
+struct FBullCowCount
+{
 	int32 Bulls = 0;
 	int32 Cows = 0;
 };
 
 enum class EGuessStatus
 {
-	invalid_status,
+	Invalid_Status,
 	OK,
 	Not_Isogram,
 	Wrong_Length,
 	Not_Lowercase
 };
 
-class FBullCowGame {
-public:
 
-	FBullCowGame(); //Constructor
+class FBullCowGame
+{
+public:
+	FBullCowGame(); // constructor
 
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
 	bool IsGameWon() const;
 	EGuessStatus CheckGuessValidity(FString) const;
-	int32 getHiddenWordLength() const;
-	FString GetNewWord();
+
+	void Reset();
+	FBullCowCount SubmitValidGuess(FString);
 
 
-	// counts bulls and cows, and increasing turn number.
-	FBullCowCount SubmitGuess(FString);
-
-	void Reset(); //TODO making a more rich return value
-
+	// ^^ Please try and ignore this and focus on the interface above ^^
 private:
-	// we don't put values because the constructor will initiate the values for us.
-	int32 MyCurrentTries;
-	int32 MyMaxTries;
+	// see constructor for initialisation
+	int32 MyCurrentTry;
 	FString MyHiddenWord;
+	bool bGameIsWon;
+
+	bool IsIsogram(FString) const;
+	bool IsLowercase(FString) const;
 };
